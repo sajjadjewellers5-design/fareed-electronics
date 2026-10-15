@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fareed Electronics - Accounting & Inventory ERP</title>
+    <meta name="description" content="Official Tech Store & Lab accounting, inventory, invoicing, banking, and financial reporting system." />
+    <meta property="og:title" content="Fareed Electronics - Accounting & Inventory ERP" />
+    <meta property="og:description" content="Official Tech Store & Lab accounting, inventory, invoicing, banking, and financial reporting system." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Gracefully intercept Vite HMR WebSocket in AI Studio cloud environment
+      (function() {
+        const OriginalWebSocket = window.WebSocket;
+        if (OriginalWebSocket) {
+          window.WebSocket = function(url, protocols) {
+            if (
+              protocols === 'vite-hmr' ||
+              (typeof url === 'string' && (url.includes('vite-hmr') || url.includes('/@vite/client') || url.includes('createWebSocketModuleRunnerTransport')))
+            ) {
+              const dummy = {
+                url: url,
+                readyState: 3,
+                protocol: protocols || '',
+                extensions: '',
+                bufferedAmount: 0,
+                binaryType: 'blob',
+                send: function() {},
+                close: function() {},
+                addEventListener: function(type, listener) {
+                  if (type === 'close') {
+                    setTimeout(() => {
+                      try {
+                        listener({ wasClean: true, code: 1000, reason: 'HMR disabled' });
+                      } catch (e) {}
+                    }, 50);
+                  }
+                },
+                removeEventListener: function() {},
+                dispatchEvent: function() { return false; },
+                onopen: null,
+                onclose: null,
+                onerror: null,
+                onmessage: null,
+              };
+              return dummy;
+            }
+            return new OriginalWebSocket(url, protocols);
+          };
+          window.WebSocket.prototype = OriginalWebSocket.prototype;
+          window.WebSocket.CONNECTING = OriginalWebSocket.CONNECTING;
+          window.WebSocket.OPEN = OriginalWebSocket.OPEN;
+          window.WebSocket.CLOSING = OriginalWebSocket.CLOSING;
+          window.WebSocket.CLOSED = OriginalWebSocket.CLOSED;
+        }
+
+        window.addEventListener('error', function(event) {
+          if (
+            event.message && (
+              event.message.includes('WebSocket') ||
+              event.message.includes('createWebSocketModuleRunnerTransport') ||
+              (event.filename && event.filename.includes('@vite/client'))
+            )
+          ) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(event) {
+          if (
+            event.reason && (
+              String(event.reason).includes('WebSocket') ||
+              String(event.reason?.message).includes('WebSocket') ||
+              String(event.reason?.stack).includes('@vite/client') ||
+              String(event.reason?.stack).includes('createWebSocketModuleRunnerTransport')
+            )
+          ) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

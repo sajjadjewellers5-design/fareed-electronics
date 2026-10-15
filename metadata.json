@@ -1,0 +1,6 @@
+{
+  "name": "Fareed Electronics - Accounting & Inventory ERP",
+  "description": "Comprehensive accounting, stock management, customer invoicing, purchase billing, and banking system for Fareed Electronics Official Tech Store & Lab.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
